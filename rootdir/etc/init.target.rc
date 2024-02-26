@@ -152,6 +152,9 @@ service thermal-engine /system/vendor/bin/thermal-engine
 
 on property:sys.boot_completed=1
    start thermal-engine
+   # STOP EATING MY BATTERY AFTER 100H OF UPTIME FUCK YOU
+   stop statsd
+   
    # Enable PowerHAL hint processing
    setprop vendor.powerhal.init 1
 
